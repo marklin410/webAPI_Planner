@@ -13,6 +13,9 @@ namespace DietPlanner.Presentation.Models
     {
         public string Name { get; set; }
         public int Calories { get; set; }
+        public int Fats { get; set; }
+        public int Proteins { get; set; }
+        public int Carbohydrates { get; set; }
 
         public DishModel()
         {
@@ -22,7 +25,10 @@ namespace DietPlanner.Presentation.Models
         public DishModel(Domain.Entities.Dish dish)
         {
             Name = dish?.Name?? throw new ArgumentNullException(nameof(dish));
-            Calories = dish?.Calories ?? throw new ArgumentNullException(nameof(dish)); ;
+            Calories = dish?.Calories ?? throw new ArgumentNullException(nameof(dish));
+            Fats = dish?.Fats ?? throw new ArgumentNullException(nameof(dish)); ;
+            Proteins = dish?.Proteins ?? throw new ArgumentNullException(nameof(dish)); ;
+            Carbohydrates = dish?.Carbohydrates ?? throw new ArgumentNullException(nameof(dish)); ; 
 
         }
 
@@ -31,7 +37,11 @@ namespace DietPlanner.Presentation.Models
             return new Dish()
             {
                 Name = this.Name,
-                Calories=this.Calories
+                Calories=this.Calories,
+                Fats = this.Fats,
+                Proteins = this.Proteins,
+                Carbohydrates = this.Carbohydrates
+
             };
 
         }

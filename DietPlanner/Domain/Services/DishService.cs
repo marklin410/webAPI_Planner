@@ -16,16 +16,17 @@ namespace DietPlanner.Domain.Services
 
         }
 
-        public async Task AddDish(Dish dish)
+        /*public async Task AddDish(Dish dish)
         {
             if(dish==null)
                 throw new ArgumentNullException(nameof(dish));
             await _dishRepository.AddDish(dish);
-        }
+        }*/
 
         public async Task<Dish[]> GetDishes()
         {
             return await _dishRepository.GetDishes();
         }
+
     }
 }

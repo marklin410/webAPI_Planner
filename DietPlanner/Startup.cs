@@ -32,6 +32,8 @@ namespace DietPlanner
         {
             services.AddControllers();
             services.AddTransient<IDishService, DishService>();
+            services.AddTransient<ISearchService, SearchService>();
+            services.AddTransient<IJournalService, JournalService>();
             services.AddTransient<IDishRepository, DishRepository>();
         }
 

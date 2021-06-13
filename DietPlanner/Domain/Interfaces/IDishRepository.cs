@@ -9,6 +9,8 @@ namespace DietPlanner.Domain.Interfaces
     public interface IDishRepository
     {
         Task<Dish[]> GetDishes();
-        Task AddDish(Dish dish);
+        Task<Dish[]> GetDishesByName(Search search);
+       // Task AddDish(Dish dish);
+        Task AddEntry(JournalEntry journalEntry);
     }
 }

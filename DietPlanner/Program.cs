@@ -14,7 +14,7 @@ namespace DietPlanner
     public class Program
     {
         Logger logger = new LoggerConfiguration()
-               .WriteTo.Sentry("https://ab19f59436da43e0a070d43df3c942c0@o828966.ingest.sentry.io/5811828")
+               .WriteTo.Sentry("https://fed8f6a79ace42008d1e83b1a592212d@o828966.ingest.sentry.io/5813633")
                .WriteTo.Console()
                .Enrich.FromLogContext()
                .CreateLogger();

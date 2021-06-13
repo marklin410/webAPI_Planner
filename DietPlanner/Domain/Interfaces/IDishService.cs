@@ -9,6 +9,7 @@ namespace DietPlanner.Domain.Interfaces
     public interface IDishService
     {
         Task<Dish[]> GetDishes();
-        Task AddDish(Dish dish);
+
+        //Task AddDish(Dish dish);
     }
 }
