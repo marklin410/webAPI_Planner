@@ -32,9 +32,11 @@ namespace DietPlanner
                     {
                         loggingBuilder.AddSerilog();
                     });
-
+                    
                     webBuilder.UseSerilog();
                     webBuilder.UseStartup<Startup>();
+                   
+                    //webBuilder.Build();
 
                 });
     }

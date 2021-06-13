@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wX+qaBhyDUPSQyusW0bQ1FnkCP/7uWF5aCUmDzUnBctpDEd5fTvhs0OnOgPTu2IigLyuRmuPq/u2pgKkySfn/g==",
+  "dgSpecHash": "ISxQuexQ7IwwCG/xPLhtTX8Lp6+cR/CTqYMPUbbHvijZLK16MJOaLTuGeciZ4M/HQzHVY+VuWW4zenOB/d0EUg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Source\\Repos\\marklin410\\webAPI_Planner\\DietPlanner\\DietPlanner.csproj",
+  "projectFilePath": "C:\\Users\\user\\source\\repos\\marklin410\\webAPI_Planner\\DietPlanner\\DietPlanner.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.http\\1.0.0\\microsoft.aspnetcore.http.1.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\1.0.0\\microsoft.aspnetcore.http.abstractions.1.0.0.nupkg.sha512",

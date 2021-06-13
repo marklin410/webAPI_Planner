@@ -43,16 +43,23 @@ namespace DietPlanner.Presentation.Controllers
         {
             if(model == null)
             {
+                _logger.LogError( "Пустой запрос");
                 return BadRequest("Input data");
             }
             try
             {
+                _logger.LogInformation("Добавление записи");
                 await _journalService.AddEntry(model.ToEntity());
-            }catch(Exception e)
-            {
-                return BadRequest(model.ToEntity().dateTime.ToString("yyyyMMdd HH:mm:ss"));
+                _logger.LogInformation("Запись добавлена");
+                return StatusCode(StatusCodes.Status201Created);
             }
-            return StatusCode(StatusCodes.Status500InternalServerError);
+            catch(Exception e)
+            {
+                _logger.LogError("Ошибка при добавлении");
+                //return BadRequest(model.ToEntity().dateTime.ToString("yyyyMMdd HH:mm:ss"));
+                return BadRequest(e.Message);
+            }
+            
         }
 
 

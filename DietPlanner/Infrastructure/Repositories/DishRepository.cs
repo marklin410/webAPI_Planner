@@ -33,9 +33,18 @@ namespace DietPlanner.Infrastructure.Repositories
             using (var connection = new SqlConnection(connection_string_local))
             {
                 await connection.OpenAsync();
-                using (var cmd = new SqlCommand($"INSERT INTO dbo.User_Journal (DishId, Date) VALUES ({journalEntry.DishID} , CONVERT(DATETIME,'{journalEntry.dateTime.ToString("yyyyMMdd HH:mm:ss")}'))", connection))
+                /*{journalEntry.DishID}  {journalEntry.dateTime.ToString("yyyyMMdd HH:mm:ss")}*/
+                using (var cmd = new SqlCommand($"INSERT INTO dbo.User_Journal (DishId, Date) VALUES ({journalEntry.DishID},  '2019-08-17' )", connection))
                 {
-                    await cmd.ExecuteNonQueryAsync();
+                    try
+                    {
+                        await cmd.ExecuteNonQueryAsync();
+                    } catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                        _logger.LogError(e, "Произошла ошибка при запросе из бд");
+
+                    }
 
                 }
             }

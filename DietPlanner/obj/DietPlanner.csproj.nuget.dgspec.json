@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Source\\Repos\\marklin410\\webAPI_Planner\\DietPlanner\\DietPlanner.csproj": {}
+    "C:\\Users\\user\\source\\repos\\marklin410\\webAPI_Planner\\DietPlanner\\DietPlanner.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Source\\Repos\\marklin410\\webAPI_Planner\\DietPlanner\\DietPlanner.csproj": {
+    "C:\\Users\\user\\source\\repos\\marklin410\\webAPI_Planner\\DietPlanner\\DietPlanner.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Source\\Repos\\marklin410\\webAPI_Planner\\DietPlanner\\DietPlanner.csproj",
+        "projectUniqueName": "C:\\Users\\user\\source\\repos\\marklin410\\webAPI_Planner\\DietPlanner\\DietPlanner.csproj",
         "projectName": "DietPlanner",
-        "projectPath": "C:\\Users\\user\\Source\\Repos\\marklin410\\webAPI_Planner\\DietPlanner\\DietPlanner.csproj",
+        "projectPath": "C:\\Users\\user\\source\\repos\\marklin410\\webAPI_Planner\\DietPlanner\\DietPlanner.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Source\\Repos\\marklin410\\webAPI_Planner\\DietPlanner\\obj\\",
+        "outputPath": "C:\\Users\\user\\source\\repos\\marklin410\\webAPI_Planner\\DietPlanner\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
