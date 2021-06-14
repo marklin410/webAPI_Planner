@@ -7,7 +7,7 @@ namespace DietPlanner.Presentation.Models
 {
 
          public int DishID { get; set; }
-         public DateTime dateTime { get; set; }
+         //public DateTime dateTime { get; set; }
 
             public JournalModel()
             {
@@ -16,7 +16,7 @@ namespace DietPlanner.Presentation.Models
             public JournalModel(JournalEntry journalEntry)
             {
                 DishID = journalEntry?.DishID ?? throw new ArgumentNullException(nameof(journalEntry));
-                dateTime = DateTime.Now;
+                //dateTime = DateTime.Now;
             }
 
             public JournalEntry ToEntity()
@@ -24,7 +24,7 @@ namespace DietPlanner.Presentation.Models
                 return new JournalEntry()
                 {
                     DishID = this.DishID,
-                    dateTime = this.dateTime
+                   // dateTime = this.dateTime
                 };
             }
         }

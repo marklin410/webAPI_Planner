@@ -27,14 +27,17 @@ namespace DietPlanner.Presentation.Controllers
         [HttpPut]
         public async Task<IActionResult> Put([FromBody]SearchModel model)
         {
-            _logger.LogInformation("Exec to get dish by name");
+            _logger.LogInformation("Запрос блюд по названию");
             if (model == null)
             {
+                _logger.LogError("Отсутствуют данные для добавления");
                 return StatusCode(StatusCodes.Status500InternalServerError, "Пустой поисковый запрос");
             }
             try
             {
+                _logger.LogInformation("Начало запроса блюд");
                 return Ok((await _searchService.GetDishesByName(model.ToEntity())).Select(dish => new DishModel(dish)));
+                _logger.LogInformation("Запрос блюд окончен");
             }
             catch (Exception e)
             {

@@ -8,6 +8,6 @@ namespace DietPlanner.Domain.Entities
     public class JournalEntry
     {
         public int DishID { get; set; }
-        public DateTime dateTime { get; set; }
+        //public DateTime dateTime { get; set; }
     }
 }
