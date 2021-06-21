@@ -24,8 +24,8 @@ namespace FoodJournal.Presentation.Controllers
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody]SearchModel model)
+        [HttpGet]
+        public async Task<IActionResult> Get([FromBody]SearchModel model)
         {
             _logger.LogInformation("Запрос блюд по названию");
             if (model == null)

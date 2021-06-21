@@ -18,7 +18,7 @@ namespace Gateway.Controllers
             _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
         }
        
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> StartSearch(object value)
         {
             try
