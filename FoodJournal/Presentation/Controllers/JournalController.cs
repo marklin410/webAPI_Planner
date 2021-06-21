@@ -33,10 +33,9 @@ namespace FoodJournal.Presentation.Controllers
                       .WriteTo.Console()
                       .Enrich.FromLogContext()
                       .CreateLogger();
-            _logger.Error("Плановая ошибка");
             if (model == null)
             {
-                _logger.Error( "Пустой запрос");
+                _logger.Debug( "Пустой запрос");
                 return BadRequest("Input data");
             }
             try

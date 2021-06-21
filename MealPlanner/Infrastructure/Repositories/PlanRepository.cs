@@ -33,7 +33,7 @@ namespace MealPlanner.Infrastructure.Repositories
         {
             List<MealPlanDTO> dishes = new List<MealPlanDTO>();
 
-            using (var connection = new SqlConnection(connection_string_local))
+            using (var connection = new SqlConnection(_configuration.GetConnectionString(CONNECTION_STRING_NAME)))
             {
                 await connection.OpenAsync();
                 using (var cmd = new SqlCommand($"SELECT * FROM dbo.Meal_Plans WHERE " +

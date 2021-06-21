@@ -24,14 +24,14 @@ namespace FoodJournal.Presentation.Controllers
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        [HttpPut]
-        public async Task<IActionResult> Put([FromBody]SearchModel model)
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody]SearchModel model)
         {
             _logger.LogInformation("Запрос блюд по названию");
             if (model == null)
             {
                 _logger.LogError("Отсутствуют данные для добавления");
-                return StatusCode(StatusCodes.Status500InternalServerError, "Пустой поисковый запрос");
+                return StatusCode(StatusCodes.Status400BadRequest, "Пустой поисковый запрос");
             }
             try
             {

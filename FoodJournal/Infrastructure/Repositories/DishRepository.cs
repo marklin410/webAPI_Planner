@@ -19,8 +19,7 @@ namespace FoodJournal.Infrastructure.Repositories
         private readonly IConfiguration _configuration;
         private readonly ILogger<DishRepository> _logger;
 
-        private readonly string connection_string_docker = "Server=host.docker.internal;Database=DietPlanner;uid=sa;pwd=Test1234;";
-        private const string connection_string_local = "Server=DESKTOP-VEKOKSB;Database=DietPlanner;uid=sa;pwd=Test1234";
+       
         public DishRepository(IConfiguration configuration, ILogger<DishRepository> logger)
         {
             _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
@@ -30,11 +29,11 @@ namespace FoodJournal.Infrastructure.Repositories
         {
             if (journalEntry == null)
                 throw new ArgumentNullException(nameof(journalEntry));
-            using (var connection = new SqlConnection(connection_string_docker))
+            using (var connection = new SqlConnection(_configuration.GetConnectionString(CONNECTION_STRING_NAME)))
             {
                 await connection.OpenAsync();
-                /*{journalEntry.DishID}  {journalEntry.dateTime.ToString("yyyyMMdd HH:mm:ss")}*/
-                using (var cmd = new SqlCommand($"INSERT INTO dbo.User_Journal (DishId, Date) VALUES ({journalEntry.DishID},  '2019-08-17' )", connection))
+              
+                using (var cmd = new SqlCommand($"INSERT INTO dbo.User_Journal (DishId, Date) VALUES ({journalEntry.DishID},  CURDATE() )", connection))
                 {
                     try
                     {
@@ -54,28 +53,28 @@ namespace FoodJournal.Infrastructure.Repositories
         {
             List<DishDTO> dishes = new List<DishDTO>();
 
-        using (var connection = new SqlConnection(connection_string_docker))
-        {
-            await connection.OpenAsync();
-            using (var cmd = new SqlCommand("SELECT * FROM dbo.Dishes", connection))
+            using (var connection = new SqlConnection(_configuration.GetConnectionString(CONNECTION_STRING_NAME)))
             {
-                var reader = await cmd.ExecuteReaderAsync();
-                while (reader.Read())
+                await connection.OpenAsync();
+                using (var cmd = new SqlCommand("SELECT * FROM dbo.Dishes", connection))
                 {
-                    dishes.Add(new DishDTO()
+                    var reader = await cmd.ExecuteReaderAsync();
+                    while (reader.Read())
                     {
-                        id = int.Parse(reader["id"].ToString()),
-                        Name = reader["Name"].ToString(),
-                        Calories = int.Parse(reader["Calories"].ToString()),
-                        Fats = int.Parse(reader["Fats"].ToString()),
-                        Proteins = int.Parse(reader["Proteins"].ToString()),
-                        Carbohydrates = int.Parse(reader["Carbohydrates"].ToString())
+                        dishes.Add(new DishDTO()
+                        {
+                            id = int.Parse(reader["id"].ToString()),
+                            Name = reader["Name"].ToString(),
+                            Calories = int.Parse(reader["Calories"].ToString()),
+                            Fats = int.Parse(reader["Fats"].ToString()),
+                            Proteins = int.Parse(reader["Proteins"].ToString()),
+                            Carbohydrates = int.Parse(reader["Carbohydrates"].ToString())
 
-                    });
+                        });
 
+                    }
                 }
             }
-        }
             return dishes.Select(e => e.ToEntity()).ToArray();
         }
 
@@ -85,7 +84,7 @@ namespace FoodJournal.Infrastructure.Repositories
         {
             List<DishDTO> dishes = new List<DishDTO>();
 
-        using (var connection = new SqlConnection(connection_string_docker))
+        using (var connection = new SqlConnection(_configuration.GetConnectionString(CONNECTION_STRING_NAME)))
         {
             await connection.OpenAsync();
             string select_query = "SELECT * FROM dbo.Dishes WHERE Name LIKE '%"+search.SearchName+"%'";

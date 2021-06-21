@@ -30,8 +30,8 @@ namespace MealPlanner.Presentation.Controllers
                      .CreateLogger();
         }
 
-        [HttpPut]
-        public async Task<IActionResult> Put([FromBody]UserDataModel model)
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody]UserDataModel model)
         {
             _logger.Information("Запрос планов питания");
             if (model == null)

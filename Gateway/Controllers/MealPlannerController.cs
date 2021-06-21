@@ -20,7 +20,7 @@ namespace Gateway.Controllers
             _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
         }
        
-        [HttpPut]
+        [HttpPost]
         public async Task<IActionResult> GetPlan(object value)
         {
             try
